@@ -1,24 +1,45 @@
-# SF_Real_Estate_Live
-The final live version of the Real Estate Project.
+# Python: Getting Started
 
-The contents include the following:
+A barebones Django app, which can easily be deployed to Heroku.
 
-data - a data directory
-- SF-SFR-Sales-Final1.csv - The raw data downloaded from the SF MLS for all single-family home sales in SF 2009-2018.
-- Realtor Neighborhoods.geojson - The mapping data downloaded from https://data.sfgov.org/Geographic-Locations-and-Boundaries/Realtor-Neighborhoods/5gzd-g9ns
-- 2018MedianHomes-Final.csv - The median home prices scraped from the NAR Median Sales Price of Existing SFH for MSAs. https://www.nar.realtor/sites/default/files/documents/metro-home-prices-q2-2019-single-family-2019-08-07.pdf
-- RankedTechIncome.csv - The Bureau of Labor Statistics - Occupational Employment Statistics income data for 2018 by MSA.  https://www.bls.gov/oes
-- neighborhood_data.csv - A test dataset to use if you want to skip the data cleaning steps.
+This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 
-Colab Notebooks
+## Running Locally
 
-- SF_Map_Code_Final.ipynb - The colab mapping code for the interactive SF Real Estate Map.
-- SF_Map_Code_Test.ipynb - The test colab mapping code for the interactive SF Real Estate Map that skips the data cleaning.
-- Tech_Salary_vs_Housing_Cost.ipynb - The colab graphing code for the two graphs.
+Make sure you have Python 3.7 [installed locally](http://install.python-guide.org). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
 
-Heroku Files
+```sh
+$ git clone https://github.com/heroku/python-getting-started.git
+$ cd python-getting-started
 
-- SF_Real_Estate_Project.py - Final executable python code from SF_Map_Code_Final.ipynb
-- Procfile
-- requirements.txt
-# heroku-introduction
+$ python3 -m venv getting-started
+$ pip install -r requirements.txt
+
+$ createdb python_getting_started
+
+$ python manage.py migrate
+$ python manage.py collectstatic
+
+$ heroku local
+```
+
+Your app should now be running on [localhost:5000](http://localhost:5000/).
+
+## Deploying to Heroku
+
+```sh
+$ heroku create
+$ git push heroku main
+
+$ heroku run python manage.py migrate
+$ heroku open
+```
+or
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+## Documentation
+
+For more information about using Python on Heroku, see these Dev Center articles:
+
+- [Python on Heroku](https://devcenter.heroku.com/categories/python)

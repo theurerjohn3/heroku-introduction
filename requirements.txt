@@ -1,5 +1,3 @@
-fiona
-pandas
-numpy
-geopandas
-bokeh
+django
+gunicorn
+django-heroku
